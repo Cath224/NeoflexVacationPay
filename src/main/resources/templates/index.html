@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Calculate Vacation Pay</title>
+  <style>
+
+    .border {
+      border: 2px solid #5C5C5C;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #F5F5F5;
+      margin: 0 auto;
+      width: 500px;
+    }
+
+
+    body {
+      background-color: #D5D5D5;
+    }
+
+
+    h1 {
+      text-align: center;
+      color: #5C5C5C;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    label {
+      color: #5C5C5C;
+      font-size: 18px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #BDBDBD;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #5C5C5C;
+      background-color: #F0F0F0;
+    }
+
+
+    .vacationPay {
+      font-size: 4rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 10px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="date"] {
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+<div class="border">
+  <h1>Please enter your salary and number of days of your desired vacation  </h1>
+  <form action="#" th:action="@{/calculate}" method="POST" >
+    <label for="salary">Salary:</label>
+    <input th:name="salary" type="text" id="salary" name="salary" pattern="^[ 0-9]+$" required/>
+
+    <label for="vacationDays">Number of  vacation days:</label>
+    <p><input th:name="vacationDays" type="text" id="vacationDays" name="vacationDays"  pattern="^[0-9]+$" required/></p>
+
+    <div class="form-group">
+      <label for="startDate">Vacation start day (including weekends and holidays) :</label>
+      <input th:name="startDate" type="text" id="startDate" name="startDate" placeholder="YYYY-MM-DD" required/>
+      <label for="endDate">Vacation end day (including weekends and holidays):</label>
+      <input th:name="endDate" type="text" id="endDate" name="endDate" placeholder="YYYY-MM-DD" required/>
+    </div>
+
+    <p><input type="submit" value = "Calculate"/>
+  </form>
+  <br>
+  <div class="vacationPay">
+    <h1>Vacation Pay:</h1>
+    <p th:text="${vacationPayHoliday}"></p>
+    <h1 >but if your vacation was without weekends and holidays, vacation pay would be </h1>
+    <p th:text="${vacationPay}"></p>
+  </div>
+</div>
+</body>
+</html>
