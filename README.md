@@ -1,8 +1,8 @@
-Task for the training center Neoflex
+# Task for the training center Neoflex
 
-Vacation Calculator application.
-Microservice on SpringBoot + Java 11 with one API:
-GET "/calculacte"
+**Vacation Calculator application.**
+**Microservice on SpringBoot + Java 11 with one API:**
+**GET "/calculate"**
 
 
 
